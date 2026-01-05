@@ -1,0 +1,105 @@
+.button {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 9px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Sizes */
+.sm {
+    padding: 0.5rem 0.75rem;
+}
+
+.md {
+    padding: 0.75rem 1.25rem;
+}
+
+.lg {
+    padding: 1rem 2rem;
+}
+
+/* Primary variant */
+.primary {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    box-shadow: 0 15px 35px -5px rgba(16, 185, 129, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Secondary variant */
+.secondary.dark {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary.dark:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.secondary.light {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+}
+
+.secondary.light:hover:not(:disabled) {
+    background: #cbd5e1;
+}
+
+/* Outline variant */
+.outline.dark {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.outline.dark:hover:not(:disabled) {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.outline.light {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+}
+
+.outline.light:hover:not(:disabled) {
+    color: #1e293b;
+    border-color: #94a3b8;
+}
+
+/* Danger variant */
+.danger {
+    background: rgba(127, 29, 29, 0.4);
+    color: #f87171;
+    border: 1px solid rgba(127, 29, 29, 0.5);
+}
+
+.danger:hover:not(:disabled) {
+    background: rgba(127, 29, 29, 0.6);
+}

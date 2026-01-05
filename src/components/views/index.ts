@@ -1,0 +1,10 @@
+// Views Components - Central Export
+export { ClientDashboard } from './ClientDashboard';
+export { AdminDashboard } from './AdminDashboard';
+export { AdminReservationsView } from './AdminReservationsView';
+export { AdminClientsView } from './AdminClientsView';
+export { AdminFinanceView } from './AdminFinanceView';
+export { ReservasView } from './ReservasView';
+export { CRMView } from './CRMView';
+export { FinanceiroView } from './FinanceiroView';
+export { LoginView } from './LoginView';

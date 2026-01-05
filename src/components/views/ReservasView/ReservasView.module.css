@@ -1,0 +1,271 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: slideInRight 0.7s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.titleDark {
+    color: white;
+}
+
+.titleLight {
+    color: #0f172a;
+}
+
+.subtitle {
+    color: #64748b;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dateInput {
+    border: 1px solid;
+    border-radius: 0.75rem;
+    padding: 0.625rem 1rem;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.dateInput:focus {
+    border-color: #10b981;
+}
+
+.dateInputDark {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dateInputLight {
+    background: white;
+    border-color: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Salas Grid */
+.salasGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .salasGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .salasGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.salaCard {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.salaCardSelected {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+    transform: scale(1.02);
+}
+
+.salaImage {
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.salaContent {
+    padding: 1.25rem;
+}
+
+.salaHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    align-items: center;
+}
+
+.salaPrice {
+    font-size: 11px;
+    font-weight: 900;
+    color: #10b981;
+    letter-spacing: -0.025em;
+}
+
+.salaName {
+    font-size: 0.875rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.salaNameDark {
+    color: white;
+}
+
+.salaNameLight {
+    color: #0f172a;
+}
+
+.salaSub {
+    font-size: 8px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Horários */
+.horariosHeader {
+    padding: 1.25rem;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.horariosHeaderDark {
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.horariosHeaderLight {
+    border-color: #e2e8f0;
+    background: #f8fafc;
+}
+
+.horariosTitle {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.horariosTitleDark {
+    color: white;
+}
+
+.horariosTitleLight {
+    color: #0f172a;
+}
+
+.horariosSubtitle {
+    font-size: 9px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.horariosGrid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .horariosGrid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .horariosGrid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+.horarioButton {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid;
+    font-size: 12px;
+    font-weight: 900;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.horarioButton:active:not(:disabled) {
+    transform: scale(0.9);
+}
+
+.horarioDisabled {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: #475569;
+    cursor: not-allowed;
+}
+
+.horarioAvailableDark {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.horarioAvailableDark:hover {
+    border-color: #10b981;
+    color: #10b981;
+    transform: scale(1.1);
+}
+
+.horarioAvailableLight {
+    background: white;
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+.horarioAvailableLight:hover {
+    border-color: #10b981;
+    color: #059669;
+    transform: scale(1.1);
+}

@@ -1,0 +1,28 @@
+.toggle {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.light:hover {
+    background: #cbd5e1;
+}

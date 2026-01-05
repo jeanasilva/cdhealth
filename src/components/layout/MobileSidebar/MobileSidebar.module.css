@@ -1,0 +1,263 @@
+/* Mobile Menu Button */
+.menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+    .menuButton {
+        display: none;
+    }
+}
+
+.menuButtonDark {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.menuButtonDark:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menuButtonLight {
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+.menuButtonLight:hover {
+    background: #f1f5f9;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+}
+
+@media (min-width: 1024px) {
+    .overlay {
+        display: none;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 100vh;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid;
+    backdrop-filter: blur(64px);
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+.sidebarDark {
+    background: rgba(0, 0, 0, 0.95);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebarLight {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: #e2e8f0;
+}
+
+/* Header */
+.header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.closeButton {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+    color: #ef4444;
+}
+
+/* Nav */
+.nav {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+}
+
+.navLabel {
+    padding: 0 1rem;
+    font-size: 9px;
+    font-weight: 900;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.navItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 11px;
+    font-weight: 900;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.activeDefault {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);
+}
+
+.activeAdmin {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.3);
+}
+
+.inactiveDark {
+    background: transparent;
+    color: #64748b;
+}
+
+.inactiveDark:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.inactiveLight {
+    background: transparent;
+    color: #64748b;
+}
+
+.inactiveLight:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+/* Footer */
+.footer {
+    padding: 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.planCard {
+    border: 1px solid;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.planDark {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.planLight {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.planLabel {
+    font-size: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.planLabelDefault {
+    color: #10b981;
+}
+
+.planLabelAdmin {
+    color: #a855f7;
+}
+
+.planInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.planName {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+
+.planNameDark {
+    color: white;
+}
+
+.planNameLight {
+    color: #0f172a;
+}
+
+.checkDefault {
+    color: #10b981;
+}
+
+.checkAdmin {
+    color: #a855f7;
+}
+
+.logoutButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1rem;
+    font-size: 10px;
+    font-weight: 900;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.logoutButton:hover {
+    color: #ef4444;
+}

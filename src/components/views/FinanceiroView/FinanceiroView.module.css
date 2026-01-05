@@ -1,0 +1,289 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.titleDark {
+    color: white;
+}
+
+.titleLight {
+    color: #0f172a;
+}
+
+.subtitle {
+    color: #64748b;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Summary Cards */
+.summaryGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .summaryGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.summaryCardGreen {
+    background: rgba(4, 78, 59, 0.2) !important;
+    border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.summaryCardAmber {
+    background: rgba(120, 53, 15, 0.2) !important;
+    border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.summaryCardDark {
+    background: #0f172a !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.summaryCardLight {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+}
+
+.summaryLabel {
+    font-size: 9px;
+    font-weight: 900;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+}
+
+.summaryLabelAmber {
+    color: #f59e0b;
+}
+
+.summaryLabelGray {
+    font-size: 9px;
+    font-weight: 900;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+}
+
+.summaryValue {
+    font-size: 2.25rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+
+.summaryValueDark {
+    color: white;
+}
+
+.summaryValueLight {
+    color: #0f172a;
+}
+
+.rechargeLink {
+    font-size: 8px;
+    font-weight: 900;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-top: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+}
+
+.rechargeLink:hover {
+    text-decoration: underline;
+}
+
+/* Table */
+.tableHeader {
+    padding: 1.25rem;
+    border-bottom: 1px solid;
+}
+
+.tableHeaderDark {
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tableHeaderLight {
+    border-color: #e2e8f0;
+    background: #f8fafc;
+}
+
+.tableTitle {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.tableTitleDark {
+    color: white;
+}
+
+.tableTitleLight {
+    color: #0f172a;
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    font-size: 11px;
+    border-collapse: collapse;
+}
+
+.table th {
+    padding: 1.25rem 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid;
+}
+
+.theadDark {
+    background: rgba(255, 255, 255, 0.05);
+    color: #64748b;
+}
+
+.theadDark th {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.theadLight {
+    background: #f8fafc;
+    color: #475569;
+}
+
+.theadLight th {
+    border-color: #e2e8f0;
+}
+
+.tbodyDark tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tbodyLight tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tableRow {
+    transition: background-color 0.2s ease;
+}
+
+.tbodyDark .tableRow:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tbodyLight .tableRow:hover {
+    background: #f8fafc;
+}
+
+.table td {
+    padding: 1.5rem 2rem;
+}
+
+.competenciaCell {
+    min-width: 150px;
+}
+
+.competencia {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.competenciaDark {
+    color: white;
+}
+
+.competenciaLight {
+    color: #0f172a;
+}
+
+.faturaId {
+    font-size: 8px;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.dataCell {
+    font-family: monospace;
+    color: #94a3b8;
+}
+
+.valorCell {
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.valorCellDark {
+    color: white;
+}
+
+.valorCellLight {
+    color: #0f172a;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.downloadButton {
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.downloadButton:hover {
+    color: #10b981;
+}

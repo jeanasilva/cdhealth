@@ -1,0 +1,251 @@
+.container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 28rem;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.iconWrapper {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.4);
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.titleDark {
+    color: white;
+}
+
+.titleLight {
+    color: #0f172a;
+}
+
+.subtitle {
+    font-size: 9px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.label {
+    font-size: 10px;
+    font-weight: 900;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-left: 0.25rem;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.inputWrapper:focus-within {
+    border-color: #10b981;
+}
+
+.inputWrapperDark {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.inputWrapperLight {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.inputIcon {
+    color: #475569;
+    transition: color 0.2s ease;
+}
+
+.inputWrapper:focus-within .inputIcon {
+    color: #10b981;
+}
+
+.input {
+    flex: 1;
+    background: transparent;
+    font-size: 0.875rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+}
+
+.inputDark {
+    color: white;
+}
+
+.inputLight {
+    color: #0f172a;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 0.75rem;
+    border-radius: 1rem;
+}
+
+/* Demo Buttons */
+.demoButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid;
+}
+
+.demoButtonsDark {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.demoButtonsLight {
+    border-color: #e2e8f0;
+}
+
+.demoButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.demoButtonAdmin {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+.demoButtonAdmin:hover {
+    background: rgba(168, 85, 247, 0.2);
+}
+
+.demoButtonClient {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.demoButtonClient:hover {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.demoIcon {
+    transition: transform 0.2s ease;
+}
+
+.demoButton:hover .demoIcon {
+    transform: scale(1.1);
+}
+
+.demoButtonAdmin .demoIcon,
+.demoButtonAdmin .demoText {
+    color: #a855f7;
+}
+
+.demoButtonClient .demoIcon,
+.demoButtonClient .demoText {
+    color: #10b981;
+}
+
+.demoText {
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Security Badge */
+.securityBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0.3;
+    margin-top: 1rem;
+}
+
+.securityIcon {
+    color: #10b981;
+}
+
+.securityText {
+    font-size: 10px;
+    font-weight: 900;
+    color: #64748b;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.backLink {
+    width: 100%;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 900;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.backLink:hover {
+    color: #10b981;
+}

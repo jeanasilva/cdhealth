@@ -1,0 +1,255 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.titleDark {
+    color: white;
+}
+
+.titleLight {
+    color: #0f172a;
+}
+
+.subtitle {
+    color: #64748b;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+}
+
+/* Search Header */
+.searchHeader {
+    padding: 1.25rem;
+    border-bottom: 1px solid;
+    display: flex;
+    gap: 1rem;
+}
+
+.searchHeaderDark {
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.searchHeaderLight {
+    border-color: #e2e8f0;
+    background: #f8fafc;
+}
+
+.searchWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #475569;
+}
+
+.searchInput {
+    width: 100%;
+    border: 1px solid;
+    border-radius: 1rem;
+    padding: 0.875rem 1.5rem 0.875rem 3rem;
+    font-size: 0.75rem;
+    outline: none;
+    font-weight: 700;
+    transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+    border-color: #10b981;
+}
+
+.searchInputDark {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.searchInputLight {
+    background: white;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
+
+/* Table */
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    font-size: 11px;
+    border-collapse: collapse;
+}
+
+.table th {
+    padding: 1.25rem 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid;
+}
+
+.theadDark {
+    background: rgba(255, 255, 255, 0.05);
+    color: #64748b;
+}
+
+.theadDark th {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.theadLight {
+    background: #f8fafc;
+    color: #475569;
+}
+
+.theadLight th {
+    border-color: #e2e8f0;
+}
+
+.tbodyDark tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tbodyLight tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tableRow {
+    transition: background-color 0.2s ease;
+}
+
+.tbodyDark .tableRow:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tbodyLight .tableRow:hover {
+    background: #f8fafc;
+}
+
+.table td {
+    padding: 1.5rem 2rem;
+}
+
+.nameCell {
+    min-width: 200px;
+}
+
+.prontuario {
+    font-size: 9px;
+    font-weight: 900;
+    color: #10b981;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.pacienteName {
+    font-size: 0.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    transition: color 0.2s ease;
+}
+
+.pacienteNameDark {
+    color: white;
+}
+
+.pacienteNameLight {
+    color: #0f172a;
+}
+
+.tableRow:hover .pacienteNameDark,
+.tableRow:hover .pacienteNameLight {
+    color: #10b981;
+}
+
+.contato {
+    font-family: monospace;
+}
+
+.contatoDark {
+    color: white;
+}
+
+.contatoLight {
+    color: #1e293b;
+}
+
+.email {
+    font-size: 9px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.dataCell {
+    font-family: monospace;
+    font-weight: 700;
+    color: #94a3b8;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.actionsCell {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.actionButton {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+    color: #10b981;
+}
+
+.deleteButton:hover {
+    color: #ef4444;
+}
