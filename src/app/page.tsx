@@ -112,6 +112,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             className={styles.appLayout}
           >
+            {/* Desktop Sidebar - hidden on mobile */}
             <Sidebar
               user={user}
               activePage={page}
@@ -119,18 +120,23 @@ export default function Home() {
               logout={logout}
             />
 
+            {/* Mobile Sidebar Overlay */}
+            <MobileSidebar
+              user={user}
+              activePage={page}
+              setPage={setPage}
+              logout={logout}
+              isOpen={mobileMenuOpen}
+              onToggle={() => setMobileMenuOpen(false)}
+            />
+
             <main className={styles.mainContent}>
-              <header className={`${styles.mobileHeader} ${isDarkMode ? styles.mobileHeaderDark : styles.mobileHeaderLight}`}>
-                <MobileSidebar
-                  user={user}
-                  activePage={page}
-                  setPage={setPage}
-                  logout={logout}
-                  isOpen={mobileMenuOpen}
-                  onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-                />
-                <AppHeader user={user} page={page} />
-              </header>
+              {/* Header with menu button on mobile */}
+              <AppHeader
+                user={user}
+                page={page}
+                onMenuToggle={() => setMobileMenuOpen(true)}
+              />
 
               <div className={styles.pageContent}>
                 <AnimatePresence mode="wait">

@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Menu } from 'lucide-react';
+import {
+    X, LayoutDashboard, Calendar, Users, DollarSign, LogOut,
+    BarChart3, UserCog, PieChart, TrendingUp, CalendarRange, CheckCircle2
+} from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Logo } from '@/components/brand';
-import { Sidebar } from '../Sidebar';
 import type { User, PageType } from '@/types';
 import styles from './MobileSidebar.module.css';
 
@@ -34,69 +36,10 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({
         onToggle(); // Fecha o menu ao selecionar
     };
 
-    return (
-        <>
-            {/* Mobile Menu Button */}
-            <button
-                onClick={onToggle}
-                className={`${styles.menuButton} ${isDarkMode ? styles.menuButtonDark : styles.menuButtonLight}`}
-            >
-                <Menu size={24} />
-            </button>
-
-            {/* Mobile Sidebar Overlay */}
-            <AnimatePresence>
-                {isOpen && (
-                    <>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={onToggle}
-                            className={styles.overlay}
-                        />
-                        <motion.div
-                            initial={{ x: '-100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '-100%' }}
-                            transition={{ type: 'tween', duration: 0.3 }}
-                            className={`${styles.sidebar} ${isDarkMode ? styles.sidebarDark : styles.sidebarLight}`}
-                        >
-                            <div className={styles.header}>
-                                <Logo variant={isAdmin ? 'admin' : 'default'} />
-                                <button onClick={onToggle} className={styles.closeButton}>
-                                    <X size={24} />
-                                </button>
-                            </div>
-
-                            <MobileNavItems
-                                user={user}
-                                activePage={activePage}
-                                setPage={handlePageChange}
-                                logout={logout}
-                            />
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
-        </>
-    );
-};
-
-// Componente interno para os itens de navegação mobile
-const MobileNavItems: React.FC<{
-    user: User;
-    activePage: PageType;
-    setPage: (page: PageType) => void;
-    logout: () => void;
-}> = ({ user, activePage, setPage, logout }) => {
-    const { isDarkMode } = useTheme();
-    const isAdmin = user?.email === 'carla@cd.com';
-
-    const {
-        LayoutDashboard, Calendar, Users, DollarSign, LogOut,
-        BarChart3, UserCog, PieChart, TrendingUp, CalendarRange, CheckCircle2
-    } = require('lucide-react');
+    const handleLogout = () => {
+        logout();
+        onToggle();
+    };
 
     const clientMenu = [
         { id: 'app' as PageType, label: 'Meu Dashboard', icon: LayoutDashboard },
@@ -116,49 +59,81 @@ const MobileNavItems: React.FC<{
     const currentMenu = isAdmin ? adminMenu : clientMenu;
 
     return (
-        <>
-            <nav className={styles.nav}>
-                <p className={styles.navLabel}>
-                    {isAdmin ? 'Gestão da Rede' : 'Terminal Operacional'}
-                </p>
-                {currentMenu.map(item => {
-                    const Icon = item.icon;
-                    const isActive = activePage === item.id;
+        <AnimatePresence>
+            {isOpen && (
+                <>
+                    {/* Overlay */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={onToggle}
+                        className={styles.overlay}
+                    />
 
-                    return (
-                        <button
-                            key={item.id}
-                            onClick={() => setPage(item.id)}
-                            className={`${styles.navItem} ${isActive
-                                    ? (isAdmin ? styles.activeAdmin : styles.activeDefault)
-                                    : (isDarkMode ? styles.inactiveDark : styles.inactiveLight)
-                                }`}
-                        >
-                            <Icon size={18} strokeWidth={isActive ? 3 : 2} />
-                            {item.label}
-                        </button>
-                    );
-                })}
-            </nav>
+                    {/* Sidebar Drawer */}
+                    <motion.div
+                        initial={{ x: '-100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={{ type: 'tween', duration: 0.3 }}
+                        className={`${styles.sidebar} ${isDarkMode ? styles.sidebarDark : styles.sidebarLight}`}
+                    >
+                        {/* Header */}
+                        <div className={styles.header}>
+                            <Logo variant={isAdmin ? 'admin' : 'default'} />
+                            <button onClick={onToggle} className={styles.closeButton}>
+                                <X size={24} />
+                            </button>
+                        </div>
 
-            <div className={styles.footer}>
-                <div className={`${styles.planCard} ${isDarkMode ? styles.planDark : styles.planLight}`}>
-                    <p className={`${styles.planLabel} ${isAdmin ? styles.planLabelAdmin : styles.planLabelDefault}`}>
-                        {isAdmin ? 'Status do Sistema' : 'Seu Plano Atual'}
-                    </p>
-                    <div className={styles.planInfo}>
-                        <span className={`${styles.planName} ${isDarkMode ? styles.planNameDark : styles.planNameLight}`}>
-                            {user?.plano}
-                        </span>
-                        <CheckCircle2 size={14} className={isAdmin ? styles.checkAdmin : styles.checkDefault} />
-                    </div>
-                </div>
+                        {/* Navigation */}
+                        <nav className={styles.nav}>
+                            <p className={styles.navLabel}>
+                                {isAdmin ? 'Gestão da Rede' : 'Terminal Operacional'}
+                            </p>
+                            {currentMenu.map(item => {
+                                const Icon = item.icon;
+                                const isActive = activePage === item.id;
 
-                <button onClick={logout} className={styles.logoutButton}>
-                    <LogOut size={16} /> Sair
-                </button>
-            </div>
-        </>
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => handlePageChange(item.id)}
+                                        className={`${styles.navItem} ${isActive
+                                                ? (isAdmin ? styles.activeAdmin : styles.activeDefault)
+                                                : (isDarkMode ? styles.inactiveDark : styles.inactiveLight)
+                                            }`}
+                                    >
+                                        <Icon size={18} strokeWidth={isActive ? 3 : 2} />
+                                        {item.label}
+                                    </button>
+                                );
+                            })}
+                        </nav>
+
+                        {/* Footer */}
+                        <div className={styles.footer}>
+                            <div className={`${styles.planCard} ${isDarkMode ? styles.planDark : styles.planLight}`}>
+                                <p className={`${styles.planLabel} ${isAdmin ? styles.planLabelAdmin : styles.planLabelDefault}`}>
+                                    {isAdmin ? 'Status do Sistema' : 'Seu Plano Atual'}
+                                </p>
+                                <div className={styles.planInfo}>
+                                    <span className={`${styles.planName} ${isDarkMode ? styles.planNameDark : styles.planNameLight}`}>
+                                        {user?.plano}
+                                    </span>
+                                    <CheckCircle2 size={14} className={isAdmin ? styles.checkAdmin : styles.checkDefault} />
+                                </div>
+                            </div>
+
+                            <button onClick={handleLogout} className={styles.logoutButton}>
+                                <LogOut size={16} /> Sair
+                            </button>
+                        </div>
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
     );
 };
 
