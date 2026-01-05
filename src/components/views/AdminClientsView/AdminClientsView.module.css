@@ -1,8 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     animation: fadeIn 0.7s ease forwards;
+}
+
+@media (min-width: 768px) {
+    .container {
+        gap: 2rem;
+    }
 }
 
 @keyframes fadeIn {
@@ -18,17 +24,29 @@
 /* Header */
 .header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
 }
 
+@media (min-width: 640px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
 .title {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.05em;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 1.875rem;
+    }
 }
 
 .titleDark {
@@ -48,20 +66,52 @@
     margin-top: 0.25rem;
 }
 
+/* Table Wrapper - for horizontal scroll on mobile */
+.tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .tableWrapper {
+        margin: 0;
+        padding: 0;
+        overflow-x: visible;
+    }
+}
+
 /* Table */
 .table {
     width: 100%;
+    min-width: 600px;
     text-align: left;
-    font-size: 11px;
+    font-size: 10px;
     border-collapse: collapse;
 }
 
+@media (min-width: 768px) {
+    .table {
+        min-width: auto;
+        font-size: 11px;
+    }
+}
+
 .table th {
-    padding: 1.25rem 2rem;
+    padding: 0.75rem 1rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     border-bottom: 1px solid;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .table th {
+        padding: 1.25rem 1.5rem;
+        letter-spacing: 0.1em;
+    }
 }
 
 .theadDark {
@@ -105,17 +155,37 @@
 }
 
 .table td {
-    padding: 1.5rem 2rem;
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .table td {
+        padding: 1.5rem;
+    }
 }
 
 .nameCell {
-    min-width: 200px;
+    min-width: 150px;
+}
+
+@media (min-width: 768px) {
+    .nameCell {
+        min-width: 200px;
+    }
 }
 
 .clientName {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.025em;
+    font-size: 11px;
+}
+
+@media (min-width: 768px) {
+    .clientName {
+        font-size: 12px;
+    }
 }
 
 .clientNameDark {
@@ -127,9 +197,15 @@
 }
 
 .clientEmail {
-    font-size: 9px;
+    font-size: 8px;
     color: #64748b;
     font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .clientEmail {
+        font-size: 9px;
+    }
 }
 
 .unidadeCell {

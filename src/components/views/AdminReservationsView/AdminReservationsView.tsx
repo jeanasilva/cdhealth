@@ -23,12 +23,12 @@ export const AdminReservationsView: React.FC<AdminReservationsViewProps> = ({ op
                     <h2 className={`${styles.title} ${isDarkMode ? styles.titleDark : styles.titleLight}`}>
                         Reservas Globais
                     </h2>
-                    <p className={styles.subtitle}>Controle de agendamentos de toda a rede</p>
+                    <p className={styles.subtitle}>Controle de agendamentos da rede</p>
                 </div>
                 <div className={styles.actions}>
                     <ProButton variant="outline" size="sm"><Download size={14} /> Relatório</ProButton>
                     <ProButton size="sm" onClick={() => openModal('reserva_admin')} className={styles.adminButton}>
-                        <Plus size={14} /> Nova Reserva Manual
+                        <Plus size={14} /> Nova Reserva
                     </ProButton>
                 </div>
             </div>
@@ -47,41 +47,43 @@ export const AdminReservationsView: React.FC<AdminReservationsViewProps> = ({ op
                         />
                     </div>
                 </div>
-                <table className={styles.table}>
-                    <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
-                        <tr>
-                            <th>Horário</th>
-                            <th>Médico (Cliente)</th>
-                            <th>Sala Reservada</th>
-                            <th>Valor Hora</th>
-                            <th>Status</th>
-                            <th className={styles.textRight}>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
-                        {MOCK_RESERVAS_GLOBAL.map(reserva => (
-                            <tr key={reserva.id} className={styles.tableRow}>
-                                <td className={`${styles.timeCell} ${isDarkMode ? styles.timeCellDark : styles.timeCellLight}`}>
-                                    {reserva.time} <span className={styles.dateSpan}>({reserva.date})</span>
-                                </td>
-                                <td className={styles.doctorCell}>{reserva.doctor}</td>
-                                <td className={styles.roomCell}>{reserva.room}</td>
-                                <td className={styles.valueCell}>R$ {reserva.value.toFixed(2)}</td>
-                                <td>
-                                    <Badge color={
-                                        reserva.status === 'Confirmada' ? 'emerald' :
-                                            reserva.status === 'Check-in' ? 'blue' : 'amber'
-                                    }>
-                                        {reserva.status}
-                                    </Badge>
-                                </td>
-                                <td className={styles.textRight}>
-                                    <button className={styles.editButton}><Edit3 size={16} /></button>
-                                </td>
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Médico</th>
+                                <th>Sala</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th className={styles.textRight}>Ações</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
+                            {MOCK_RESERVAS_GLOBAL.map(reserva => (
+                                <tr key={reserva.id} className={styles.tableRow}>
+                                    <td className={`${styles.timeCell} ${isDarkMode ? styles.timeCellDark : styles.timeCellLight}`}>
+                                        {reserva.time} <span className={styles.dateSpan}>({reserva.date})</span>
+                                    </td>
+                                    <td className={styles.doctorCell}>{reserva.doctor}</td>
+                                    <td className={styles.roomCell}>{reserva.room}</td>
+                                    <td className={styles.valueCell}>R$ {reserva.value.toFixed(2)}</td>
+                                    <td>
+                                        <Badge color={
+                                            reserva.status === 'Confirmada' ? 'emerald' :
+                                                reserva.status === 'Check-in' ? 'blue' : 'amber'
+                                        }>
+                                            {reserva.status}
+                                        </Badge>
+                                    </td>
+                                    <td className={styles.textRight}>
+                                        <button className={styles.editButton}><Edit3 size={16} /></button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </ProCard>
         </div>
     );

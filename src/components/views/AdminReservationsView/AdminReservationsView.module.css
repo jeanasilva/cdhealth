@@ -1,8 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     animation: fadeIn 0.7s ease forwards;
+}
+
+@media (min-width: 768px) {
+    .container {
+        gap: 2rem;
+    }
 }
 
 @keyframes fadeIn {
@@ -18,17 +24,29 @@
 /* Header */
 .header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
 }
 
+@media (min-width: 640px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
 .title {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.05em;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 1.875rem;
+    }
 }
 
 .titleDark {
@@ -50,27 +68,26 @@
 
 .actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
-}
-
-.adminButton {
-    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important;
-    border: none !important;
-}
-
-.adminButton:hover {
-    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%) !important;
 }
 
 /* Table Header */
 .tableHeader {
-    padding: 1.25rem;
+    padding: 1rem;
     border-bottom: 1px solid;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .tableHeader {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem;
+    }
 }
 
 .tableHeaderDark {
@@ -106,8 +123,8 @@
 .dateInput {
     border: 1px solid;
     border-radius: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    font-size: 9px;
+    padding: 0.5rem 0.75rem;
+    font-size: 10px;
     font-weight: 700;
     outline: none;
 }
@@ -124,20 +141,42 @@
     color: #475569;
 }
 
+/* Table Wrapper */
+.tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* Table */
 .table {
     width: 100%;
+    min-width: 700px;
     text-align: left;
-    font-size: 11px;
+    font-size: 10px;
     border-collapse: collapse;
 }
 
+@media (min-width: 768px) {
+    .table {
+        min-width: auto;
+        font-size: 11px;
+    }
+}
+
 .table th {
-    padding: 1.25rem 2rem;
+    padding: 0.75rem 1rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     border-bottom: 1px solid;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .table th {
+        padding: 1.25rem 1.5rem;
+        letter-spacing: 0.1em;
+    }
 }
 
 .theadDark {
@@ -181,7 +220,14 @@
 }
 
 .table td {
-    padding: 1.5rem 2rem;
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .table td {
+        padding: 1.5rem;
+    }
 }
 
 .timeCell {
@@ -199,7 +245,13 @@
 
 .dateSpan {
     color: #64748b;
-    font-size: 9px;
+    font-size: 8px;
+}
+
+@media (min-width: 768px) {
+    .dateSpan {
+        font-size: 9px;
+    }
 }
 
 .doctorCell {
@@ -235,4 +287,13 @@
 
 .editButton:hover {
     color: #a855f7;
+}
+
+.adminButton {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important;
+    border: none !important;
+}
+
+.adminButton:hover {
+    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%) !important;
 }

@@ -28,7 +28,7 @@ export const FinanceiroView: React.FC<FinanceiroViewProps> = ({ openModal }) => 
                 </div>
                 <div className={styles.actions}>
                     <ProButton size="sm" onClick={() => openModal('pagamento')}>
-                        <CreditCard size={14} /> Pagar Fatura
+                        <CreditCard size={14} /> Pagar
                     </ProButton>
                 </div>
             </div>
@@ -42,17 +42,17 @@ export const FinanceiroView: React.FC<FinanceiroViewProps> = ({ openModal }) => 
                     </p>
                 </ProCard>
                 <ProCard className={styles.summaryCardAmber}>
-                    <p className={`${styles.summaryLabel} ${styles.summaryLabelAmber}`}>Pendente de Pagamento</p>
+                    <p className={`${styles.summaryLabel} ${styles.summaryLabelAmber}`}>Pendente</p>
                     <p className={`${styles.summaryValue} ${isDarkMode ? styles.summaryValueDark : styles.summaryValueLight}`}>
                         R$ 890,00
                     </p>
                 </ProCard>
                 <ProCard className={isDarkMode ? styles.summaryCardDark : styles.summaryCardLight}>
-                    <p className={styles.summaryLabelGray}>Crédito Disponível</p>
+                    <p className={styles.summaryLabelGray}>Crédito</p>
                     <p className={`${styles.summaryValue} ${isDarkMode ? styles.summaryValueDark : styles.summaryValueLight}`}>
                         R$ 0,00
                     </p>
-                    <button className={styles.rechargeLink}>Recarregar créditos</button>
+                    <button className={styles.rechargeLink}>Recarregar</button>
                 </ProCard>
             </div>
 
@@ -63,47 +63,49 @@ export const FinanceiroView: React.FC<FinanceiroViewProps> = ({ openModal }) => 
                         Extrato de Locação
                     </h3>
                 </div>
-                <table className={styles.table}>
-                    <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
-                        <tr>
-                            <th>Competência</th>
-                            <th>Status</th>
-                            <th>Vencimento</th>
-                            <th>Valor</th>
-                            <th className={styles.textRight}>Comprovante</th>
-                        </tr>
-                    </thead>
-                    <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
-                        {myFaturas.map(fatura => (
-                            <tr key={fatura.id} className={styles.tableRow}>
-                                <td className={styles.competenciaCell}>
-                                    <p className={`${styles.competencia} ${isDarkMode ? styles.competenciaDark : styles.competenciaLight}`}>
-                                        {fatura.mes}
-                                    </p>
-                                    <p className={styles.faturaId}>{fatura.id}</p>
-                                </td>
-                                <td>
-                                    <Badge color={fatura.status === 'Paga' ? 'emerald' : fatura.status === 'Atrasada' ? 'red' : 'amber'}>
-                                        {fatura.status}
-                                    </Badge>
-                                </td>
-                                <td className={styles.dataCell}>{fatura.vencimento}</td>
-                                <td className={`${styles.valorCell} ${isDarkMode ? styles.valorCellDark : styles.valorCellLight}`}>
-                                    R$ {fatura.valor.toFixed(2)}
-                                </td>
-                                <td className={styles.textRight}>
-                                    {fatura.status === 'Paga' ? (
-                                        <button className={styles.downloadButton}>
-                                            <Download size={16} />
-                                        </button>
-                                    ) : (
-                                        <ProButton size="sm" onClick={() => openModal('pagamento')}>Pagar PIX</ProButton>
-                                    )}
-                                </td>
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
+                            <tr>
+                                <th>Mês</th>
+                                <th>Status</th>
+                                <th>Venc.</th>
+                                <th>Valor</th>
+                                <th className={styles.textRight}>Ação</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
+                            {myFaturas.map(fatura => (
+                                <tr key={fatura.id} className={styles.tableRow}>
+                                    <td className={styles.competenciaCell}>
+                                        <p className={`${styles.competencia} ${isDarkMode ? styles.competenciaDark : styles.competenciaLight}`}>
+                                            {fatura.mes}
+                                        </p>
+                                        <p className={styles.faturaId}>{fatura.id}</p>
+                                    </td>
+                                    <td>
+                                        <Badge color={fatura.status === 'Paga' ? 'emerald' : fatura.status === 'Atrasada' ? 'red' : 'amber'}>
+                                            {fatura.status}
+                                        </Badge>
+                                    </td>
+                                    <td className={styles.dataCell}>{fatura.vencimento}</td>
+                                    <td className={`${styles.valorCell} ${isDarkMode ? styles.valorCellDark : styles.valorCellLight}`}>
+                                        R$ {fatura.valor.toFixed(2)}
+                                    </td>
+                                    <td className={styles.textRight}>
+                                        {fatura.status === 'Paga' ? (
+                                            <button className={styles.downloadButton}>
+                                                <Download size={16} />
+                                            </button>
+                                        ) : (
+                                            <ProButton size="sm" onClick={() => openModal('pagamento')}>PIX</ProButton>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </ProCard>
         </div>
     );

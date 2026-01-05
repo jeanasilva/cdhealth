@@ -20,49 +20,51 @@ export const AdminClientsView: React.FC = () => {
                     </h2>
                     <p className={styles.subtitle}>Profissionais que alugam salas na rede</p>
                 </div>
-                <ProButton size="sm"><Download size={14} /> Exportar Lista</ProButton>
+                <ProButton size="sm"><Download size={14} /> Exportar</ProButton>
             </div>
 
             {/* Table */}
             <ProCard noPadding>
-                <table className={styles.table}>
-                    <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
-                        <tr>
-                            <th>Médico / Cliente</th>
-                            <th>Unidade Principal</th>
-                            <th>Plano Contratado</th>
-                            <th>Receita Gerada</th>
-                            <th>Status Financeiro</th>
-                            <th className={styles.textRight}>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
-                        {MOCK_CLIENTES.map(cliente => (
-                            <tr key={cliente.id} className={styles.tableRow}>
-                                <td className={styles.nameCell}>
-                                    <p className={`${styles.clientName} ${isDarkMode ? styles.clientNameDark : styles.clientNameLight}`}>
-                                        {cliente.nome}
-                                    </p>
-                                    <p className={styles.clientEmail}>{cliente.email}</p>
-                                </td>
-                                <td className={styles.unidadeCell}>{cliente.unidade}</td>
-                                <td className={styles.planoCell}>{cliente.plano}</td>
-                                <td className={styles.receitaCell}>R$ {cliente.receita.toFixed(2)}</td>
-                                <td>
-                                    <Badge color={
-                                        cliente.status === 'Ativo' ? 'emerald' :
-                                            cliente.status === 'Inadimplente' ? 'red' : 'amber'
-                                    }>
-                                        {cliente.status}
-                                    </Badge>
-                                </td>
-                                <td className={styles.textRight}>
-                                    <button className={styles.moreButton}><MoreHorizontal size={18} /></button>
-                                </td>
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead className={isDarkMode ? styles.theadDark : styles.theadLight}>
+                            <tr>
+                                <th>Médico</th>
+                                <th>Unidade</th>
+                                <th>Plano</th>
+                                <th>Receita</th>
+                                <th>Status</th>
+                                <th className={styles.textRight}>Ações</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className={isDarkMode ? styles.tbodyDark : styles.tbodyLight}>
+                            {MOCK_CLIENTES.map(cliente => (
+                                <tr key={cliente.id} className={styles.tableRow}>
+                                    <td className={styles.nameCell}>
+                                        <p className={`${styles.clientName} ${isDarkMode ? styles.clientNameDark : styles.clientNameLight}`}>
+                                            {cliente.nome}
+                                        </p>
+                                        <p className={styles.clientEmail}>{cliente.email}</p>
+                                    </td>
+                                    <td className={styles.unidadeCell}>{cliente.unidade}</td>
+                                    <td className={styles.planoCell}>{cliente.plano}</td>
+                                    <td className={styles.receitaCell}>R$ {cliente.receita.toFixed(2)}</td>
+                                    <td>
+                                        <Badge color={
+                                            cliente.status === 'Ativo' ? 'emerald' :
+                                                cliente.status === 'Inadimplente' ? 'red' : 'amber'
+                                        }>
+                                            {cliente.status}
+                                        </Badge>
+                                    </td>
+                                    <td className={styles.textRight}>
+                                        <button className={styles.moreButton}><MoreHorizontal size={18} /></button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </ProCard>
         </div>
     );
